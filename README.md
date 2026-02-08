@@ -20,7 +20,7 @@ Repository ini berisi dokumentasi pembelajaran, tugas, dan portofolio analisis d
 Pada minggu pertama, materi mencakup pemahaman dasar bioinformatika sebagai ilmu interdisipliner dan bedah jurnal (*journal review*) terkait penerapan Transkriptomik pada kasus Kanker Kolorektal.
 
 ### 🔍 Review Jurnal: Kanker Kolorektal (CRC)
-> [cite_start]**Judul Paper:** *Exploring Core Genes by Comparative Transcriptomics Analysis for Early Diagnosis, Prognosis, and Therapies of Colorectal Cancer* [cite: 228, 298, 299]
+**Judul Paper:** *Exploring Core Genes by Comparative Transcriptomics Analysis for Early Diagnosis, Prognosis, and Therapies of Colorectal Cancer* 
 
 #### 1. Latar Belakang Masalah
 - [cite_start]Kanker Kolorektal (CRC) merupakan keganasan ketiga paling umum dan penyebab kematian akibat kanker kedua terbanyak secara global[cite: 230].
