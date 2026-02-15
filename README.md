@@ -55,6 +55,7 @@ Berdasarkan analisis statistik, ditemukan **17.962 gen** yang terdisregulasi sec
 - **UMAP Plot:** Terdapat pemisahan klaster yang sangat tegas antara grup **Tumor** dan **Mucosa**, membuktikan adanya perbedaan profil transkriptomik yang nyata (biologis) dan bukan sekadar *noise*.
 
 <img width="440" height="360" alt="umap" src="https://github.com/user-attachments/assets/c19e1fd3-9957-4a53-9b33-412c833e9f70" />
+
 *(Gambar: Visualisasi UMAP menunjukkan pemisahan jelas antara sampel Tumor (hijau) dan Mucosa (ungu))*
 
 #### 2. Identifikasi Biomarker (Top DEGs)
