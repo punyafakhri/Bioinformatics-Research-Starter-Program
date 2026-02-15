@@ -1,55 +1,83 @@
 # Bioinformatics Research Starter Program (BRSP) - Portfolio 🧬💻
 
-Repository ini berisi dokumentasi pembelajaran, tugas, dan portofolio analisis data selama mengikuti **Bioinformatics Research Starter Program (BRSP)** oleh OmicsLite (Batch Feb-Mar 2026). Program ini berfokus pada **Transcriptomics & Differential Gene Expression (DEG) Analysis**.
+Repository ini berisi dokumentasi perjalanan pembelajaran dan proyek analisis data saya selama mengikuti **Bioinformatics Research Starter Program (BRSP)** oleh OmicsLite (Batch Feb-Mar 2026). Program ini berfokus pada **Transcriptomics & Differential Gene Expression (DEG) Analysis**.
 
 ---
 
 ## 📌 Program Overview
 - **Tema:** Transcriptomics & Differential Gene Expression Analysis
 - **Durasi:** 5 Minggu (2 Feb - 8 Mar 2026)
+- **Tech Stack:** R (Limma), NCBI GEO, GEO2R, Cytoscape, Enrichr.
 - **Fokus Pembelajaran:**
-  - Memahami dasar Transkriptomik & Analisis DEG.
-  - Menggunakan data publik dari NCBI GEO.
-  - Melakukan analisis DEG menggunakan R & *tools* berbasis web.
-  - Mereplikasi analisis dari artikel ilmiah.
+  - Memahami dasar Transkriptomik & Pipeline RNA-Seq.
+  - Eksplorasi data publik (NCBI GEO).
+  - Analisis DEG (Differentially Expressed Genes).
+  - Interpretasi biologis dan penemuan biomarker.
 
 ---
 
-## 📝 Week 1: Dasar Bioinformatika & Studi Kasus Transkriptomik
+## 📝 Week 1: Dasar Bioinformatika & Studi Kasus
 
-Pada minggu pertama, materi mencakup pemahaman dasar bioinformatika sebagai ilmu interdisipliner dan bedah jurnal (*journal review*) terkait penerapan Transkriptomik pada kasus Kanker Kolorektal.
+Pada minggu pertama, fokus pembelajaran adalah memahami konsep dasar bioinformatika dan melakukan bedah jurnal (*journal review*) terkait penerapan Transkriptomik pada penyakit.
 
 ### 🔍 Review Jurnal: Kanker Kolorektal (CRC)
-**Judul Paper:** *Exploring Core Genes by Comparative Transcriptomics Analysis for Early Diagnosis, Prognosis, and Therapies of Colorectal Cancer* 
+> **Judul Paper:** *Exploring Core Genes by Comparative Transcriptomics Analysis for Early Diagnosis, Prognosis, and Therapies of Colorectal Cancer*
 
-#### 1. Latar Belakang Masalah
-- Kanker Kolorektal (CRC) merupakan keganasan ketiga paling umum dan penyebab kematian akibat kanker kedua terbanyak secara global.
-- Sebagian besar kasus didiagnosis pada tahap lanjut, yang mengurangi opsi terapi dan tingkat kelangsungan hidup.
-- Profiling transkriptomik diperlukan untuk menemukan *biomarker* genetik (gen yang diekspresikan secara diferensial) yang akurat guna deteksi dini.
-
-#### 2. Metodologi (Pipeline Bioinformatika)
-Penelitian ini menggunakan pendekatan *in silico* dengan tahapan berikut:
-1. **Akuisisi Data:** Menggunakan 3 dataset *microarray* (GSE106582, GSE110223, GSE74602) dari *database* NCBI GEO.
-2. **Identifikasi DEGs:** Menganalisis *Differentially Expressed Genes* menggunakan alat GEO2R dengan paket R LIMMA.
-3. **Analisis Jaringan (PPI):** Membangun jaringan interaksi protein dari gen yang berbeda menggunakan *database* STRING dan divisualisasikan dengan Cytoscape.
-4. **Seleksi Gen Inti (Core Genes):** Menerapkan algoritma MCC (*Maximal Clique Centrality*) untuk menemukan protein esensial bagi sel kanker.
-5. **Validasi Klinis:** Memvalidasi utilitas prognostik gen inti pada kohort independen menggunakan data TCGA (dataset COAD dan READ).
-6. **Penemuan Obat (Drug Repurposing):** Melakukan *molecular docking* (AutoDock Vina) dan Simulasi Dinamika Molekuler selama 100 ns (YASARA) untuk menilai stabilitas interaksi obat-target.
-
-#### 3. Hasil Utama
-- **252 cDEGs:** Analisis mengungkapkan 252 gen (cDEGs) umum yang merupakan irisan dari ketiga dataset, menyaring ribuan gen menjadi sinyal biologis yang konsisten.
-- **10 Gen Inti (Hub Genes):** Melalui analisis topologi MCC, teridentifikasi 10 gen kunci yang mengalami *upregulation* pada jaringan CRC: *AURKA, TOP2A, CDK1, PTTG1, CDKN3, CDC20, MAD2L1, CKS2, MELK,* dan *TPX2*.
-- **Kandidat Obat:** Studi mengidentifikasi Manzamine A (alkaloid laut) yang menunjukkan pengikatan afinitas tinggi terhadap TPX2 dan stabilitas kompleks yang baik dalam simulasi MD, menjadikannya kandidat kuat untuk inhibitor CRC.
-
-#### 4. Kesimpulan
-Studi ini berhasil merumuskan panel *biomarker* yang terdiri dari 10 Gen Inti sebagai pendorong siklus sel yang tidak teratur untuk diagnosis Kanker Kolorektal. Penelitian ini juga mengusulkan tujuh kandidat obat, dengan Manzamine A sebagai inhibitor potensial.
+**Rangkuman Analisis:**
+- **Masalah:** Kanker Kolorektal sering didiagnosis terlambat. Diperlukan biomarker genetik untuk deteksi dini.
+- **Metode:** Menggunakan 3 dataset microarray dari NCBI GEO, dianalisis dengan GEO2R (Limma), konstruksi jaringan PPI (STRING db), dan validasi survival (TCGA).
+- **Hasil Utama:**
+  - Teridentifikasi **10 Gen Inti (Hub Genes)** yang mengalami *up-regulation*: *AURKA, TOP2A, CDK1, PTTG1, CDKN3, CDC20, MAD2L1, CKS2, MELK,* dan *TPX2*.
+  - Studi *Drug Repurposing* mengidentifikasi senyawa **Manzamine A** sebagai kandidat obat potensial.
 
 ---
 
-## 🛠️ Tools & Tech Stack
-- **Bahasa Pemrograman:** R (Limma Package)
-- **Database:** NCBI GEO, STRING db, TCGA, DisGeNET, DSigDB
-- **Software/Platform:** GEO2R, Cytoscape, Enrichr, AutoDock Vina, Discovery Studio Visualizer, YASARA
+## 💻 Week 2: Hands-on Differential Expression Analysis
+
+Pada minggu kedua, saya melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk mengidentifikasi ekspresi gen diferensial pada dataset Kanker Kolorektal nyata.
+
+### ⚙️ Metodologi Analisis
+- **Dataset:** [GSE106582](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106582) (ColoCare Project).
+- **Sampel:** Total 194 sampel (*Homo sapiens*), terbagi menjadi:
+  - **Kasus (Tumor):** 77 sampel.
+  - **Kontrol (Mucosa):** 117 sampel.
+- **Tools & Parameter:**
+  - Algoritma: **limma** (Linear Models for Microarray Data).
+  - Koreksi P-value: **Benjamini & Hochberg** (FDR).
+  - Cut-off Signifikansi: **Adj. P-value < 0.05** & **|logFC| > 1**.
+- **Validasi:** Analisis dilakukan dengan 3 kali replikasi teknis untuk memastikan konsistensi hasil.
+
+### 📊 Hasil Analisis (Key Findings)
+Berdasarkan analisis statistik, ditemukan **17.962 gen** yang terdisregulasi secara signifikan antara jaringan tumor dan mukosa normal.
+
+#### 1. Quality Control & Clustering
+- **Boxplot:** Menunjukkan distribusi data yang sejajar, mengindikasikan proses normalisasi data (quantile normalization) berjalan baik.
+- **UMAP Plot:** Terdapat pemisahan klaster yang sangat tegas antara grup **Tumor** dan **Mucosa**, membuktikan adanya perbedaan profil transkriptomik yang nyata (biologis) dan bukan sekadar *noise*.
+
+![UMAP Plot Visualization]<img width="440" height="360" alt="umap" src="https://github.com/user-attachments/assets/c19e1fd3-9957-4a53-9b33-412c833e9f70" />
+*(Gambar: Visualisasi UMAP menunjukkan pemisahan jelas antara sampel Tumor (hijau) dan Mucosa (ungu))*
+
+#### 2. Identifikasi Biomarker (Top DEGs)
+Analisis Volcano Plot dan tabel statistik mengungkapkan gen dengan perubahan ekspresi paling ekstrem:
+
+| Gene Symbol | Status | LogFC | Adj. P-Value | Interpretasi Biologis |
+| :--- | :--- | :--- | :--- | :--- |
+| **CLDN1** | 🔼 Up-regulated | 2.898 | 1.01e-60 | Protein *tight junction*. Peningkatan ekspresinya pada CRC dikaitkan dengan hilangnya polaritas sel dan metastasis. |
+| **GUCA2A** | 🔽 Down-regulated | -4.023 | 9.58e-53 | Berperan dalam homeostasis cairan usus. Hilangnya gen ini adalah penanda dediferensiasi sel usus menjadi ganas. |
+| **GUCA2B** | 🔽 Down-regulated | -3.383 | 4.26e-54 | (Sama dengan GUCA2A), penurunan drastis menandakan hilangnya fungsi normal epitel usus. |
+
+![Volcano Plot](path/to/your/volcano_plot.png)
+*(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated (merah) dan down-regulated (biru))*
+
+### 💡 Kesimpulan Week 2
+Analisis dataset GSE106582 berhasil mengonfirmasi profil molekuler Kanker Kolorektal yang agresif. Penemuan **CLDN1** (naik) dan **GUCA2A** (turun) sejalan dengan patogenesis molekuler CRC, menunjukkan bahwa metode GEO2R efektif untuk eksplorasi awal biomarker diagnostik.
+
+---
+
+## 🛠️ Tools & Resources
+- **R / Bioconductor (Limma Package)**
+- **NCBI Gene Expression Omnibus (GEO)**
+- **GEO2R**
 
 ---
 *Author: Muhammad Fakhri Aldiansyah*
