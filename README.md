@@ -56,7 +56,6 @@ Berdasarkan analisis statistik, ditemukan **17.962 gen** yang terdisregulasi sec
 
 <img width="440" height="360" alt="umap" src="https://github.com/user-attachments/assets/c19e1fd3-9957-4a53-9b33-412c833e9f70" />
 
-*(Gambar: Visualisasi UMAP menunjukkan pemisahan jelas antara sampel Tumor (hijau) dan Mucosa (ungu))*
 
 #### 2. Identifikasi Biomarker (Top DEGs)
 Analisis Volcano Plot dan tabel statistik mengungkapkan gen dengan perubahan ekspresi paling ekstrem:
