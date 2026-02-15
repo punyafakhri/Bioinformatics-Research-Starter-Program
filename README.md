@@ -66,7 +66,8 @@ Analisis Volcano Plot dan tabel statistik mengungkapkan gen dengan perubahan eks
 | **GUCA2A** | 🔽 Down-regulated | -4.023 | 9.58e-53 | Berperan dalam homeostasis cairan usus. Hilangnya gen ini adalah penanda dediferensiasi sel usus menjadi ganas. |
 | **GUCA2B** | 🔽 Down-regulated | -3.383 | 4.26e-54 | (Sama dengan GUCA2A), penurunan drastis menandakan hilangnya fungsi normal epitel usus. |
 
-![Volcano Plot](path/to/your/volcano_plot.png)
+![Volcano Plot](<img width="389" height="371" alt="volcano plot" src="https://github.com/user-attachments/assets/f6a3b28c-10df-4d65-b4b6-489758f46a22" />
+)
 *(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated (merah) dan down-regulated (biru))*
 
 ### 💡 Kesimpulan Week 2
