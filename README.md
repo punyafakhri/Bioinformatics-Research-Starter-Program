@@ -41,7 +41,7 @@ Melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk
 
 ## 🚀 Week 3: End-to-End Transcriptomics Analysis using R
 
-[cite_start]Pada minggu ketiga, analisis ditingkatkan ( *scale-up* ) dengan membangun *pipeline* analisis data mandiri menggunakan bahasa pemrograman **R**, memproses dataset GSE106582 dari tahap akuisisi mentah hingga interpretasi biologis tingkat lanjut[cite: 794].
+Pada minggu ketiga, analisis ditingkatkan ( *scale-up* ) dengan membangun *pipeline* analisis data mandiri menggunakan bahasa pemrograman **R**, memproses dataset GSE106582 dari tahap akuisisi mentah hingga interpretasi biologis tingkat lanjut.
 
 ### ⚙️ Metodologi Analisis
 - **Data Ingestion:** Akuisisi matriks ekspresi menggunakan `GEOquery`.
@@ -57,18 +57,20 @@ Visualisasi *Volcano Plot* mengonfirmasi pergeseran transkriptomik masif antara 
 - **Up-regulated:** Gen struktural seperti *CLDN1* dan *FOXQ1* terekspresi sangat kuat (blok merah) pada sampel tumor.
 - **Down-regulated:** Gen fungsional homeostasis usus, *GUCA2A* dan *GUCA2B*, mengalami represi ekstrem (blok biru).
 
-(<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/48400ef1-6239-4a2c-98a8-83d28a9ff801" />)
+<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/48400ef1-6239-4a2c-98a8-83d28a9ff801" />
 *(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated dan down-regulated pada CRC)*
 
-![Heatmap Top 50](<img width="773" height="616" alt="Top 50 Differentially Expressed Genes (GSE106582)" src="https://github.com/user-attachments/assets/bf46787f-e0a9-427a-a03f-fd6399d675e0" />)
+<img width="773" height="616" alt="Top 50 Differentially Expressed Genes (GSE106582)" src="https://github.com/user-attachments/assets/bf46787f-e0a9-427a-a03f-fd6399d675e0" />
 *(Gambar: Heatmap hierarchical clustering memisahkan profil genetik jaringan tumor dan normal dengan sempurna)*
 
 #### 2. Pathway & Functional Enrichment (GO & KEGG)
 Analisis pengayaan fungsional memberikan wawasan mekanistik mengenai invasi tumor:
-- **Gene Ontology (GO):** Gen-gen DEGs sangat diperkaya pada proses **Extracellular Matrix (ECM) Organization** dan *Extracellular Structure Organization*. [cite_start]Hal ini secara langsung merefleksikan aktivitas remodeling jaringan dan degradasi matriks yang merupakan ciri utama invasivitas sel kanker.
+- **Gene Ontology (GO):** Gen-gen DEGs sangat diperkaya pada proses **Extracellular Matrix (ECM) Organization** dan *Extracellular Structure Organization*. Hal ini secara langsung merefleksikan aktivitas remodeling jaringan dan degradasi matriks yang merupakan ciri utama invasivitas sel kanker.
 - **KEGG Pathways:** Pemetaan jalur metabolisme menyoroti disregulasi kuat pada jalur **Drug metabolism**, **Retinol metabolism**, dan **IL-17 signaling pathway**. Keterlibatan IL-17 mengindikasikan respons inflamasi kronis yang mendukung lingkungan mikro tumor (TME) pada kolon.
 
-![GO and KEGG Plots](path/to/your/go_kegg_plots.png)
+<img width="773" height="616" alt="Plot GO Top 10 Gene Ontology (GSE106582)" src="https://github.com/user-attachments/assets/f9f3b5d0-c404-4bf3-94bf-78aeb6a7806e" />
+<img width="773" height="616" alt="Plot 10 KEGG Pathways (GSE106582)" src="https://github.com/user-attachments/assets/b7ebc8c2-1442-43ce-9f4e-46ce587c351a" />
+
 *(Gambar: Hasil pemetaan Gene Ontology dan KEGG Pathways)*
 
 ### 💡 Kesimpulan Week 3
