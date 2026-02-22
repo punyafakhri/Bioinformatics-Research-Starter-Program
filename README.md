@@ -7,12 +7,12 @@ Repository ini berisi dokumentasi perjalanan pembelajaran dan proyek analisis da
 ## 📌 Program Overview
 - **Tema:** Transcriptomics & Differential Gene Expression Analysis
 - **Durasi:** 5 Minggu (2 Feb - 8 Mar 2026)
-- **Tech Stack:** R (Limma), NCBI GEO, GEO2R, Cytoscape, Enrichr.
+- **Tech Stack:** R (Limma, ggplot2, pheatmap, enrichR), NCBI GEO, GEO2R, Cytoscape, Enrichr.
 - **Fokus Pembelajaran:**
   - Memahami dasar Transkriptomik & Pipeline RNA-Seq.
   - Eksplorasi data publik (NCBI GEO).
-  - Analisis DEG (Differentially Expressed Genes).
-  - Interpretasi biologis dan penemuan biomarker.
+  - Analisis DEG secara komputasional.
+  - Interpretasi biologis (Gene Ontology & KEGG Pathways).
 
 ---
 
@@ -24,62 +24,54 @@ Pada minggu pertama, fokus pembelajaran adalah memahami konsep dasar bioinformat
 > **Judul Paper:** *Exploring Core Genes by Comparative Transcriptomics Analysis for Early Diagnosis, Prognosis, and Therapies of Colorectal Cancer*
 
 **Rangkuman Analisis:**
-- **Masalah:** Kanker Kolorektal sering didiagnosis terlambat. Diperlukan biomarker genetik untuk deteksi dini.
 - **Metode:** Menggunakan 3 dataset microarray dari NCBI GEO, dianalisis dengan GEO2R (Limma), konstruksi jaringan PPI (STRING db), dan validasi survival (TCGA).
-- **Hasil Utama:**
-  - Teridentifikasi **10 Gen Inti (Hub Genes)** yang mengalami *up-regulation*: *AURKA, TOP2A, CDK1, PTTG1, CDKN3, CDC20, MAD2L1, CKS2, MELK,* dan *TPX2*.
-  - Studi *Drug Repurposing* mengidentifikasi senyawa **Manzamine A** sebagai kandidat obat potensial.
+- **Hasil Utama:** Teridentifikasi **10 Gen Inti (Hub Genes)** yang mengalami *up-regulation* (seperti *AURKA, TOP2A, CDK1*), dan studi *Drug Repurposing* mengidentifikasi senyawa **Manzamine A** sebagai kandidat obat potensial.
 
 ---
 
-## 💻 Week 2: Hands-on Differential Expression Analysis
+## 💻 Week 2: Eksplorasi Data dengan GEO2R (Web-based)
 
-Pada minggu kedua, saya melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk mengidentifikasi ekspresi gen diferensial pada dataset Kanker Kolorektal nyata.
+Melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk mengidentifikasi ekspresi gen diferensial pada dataset Kanker Kolorektal nyata.
+
+- **Dataset:** GSE106582 (ColoCare Project).
+- **Sampel:** 77 Tumor vs 117 Mucosa (Normal).
+- **Hasil:** Analisis mengidentifikasi disregulasi masif (17.962 gen), dengan penemuan **CLDN1** sebagai gen yang mengalami peningkatan ekstrem, dan kelompok **GUCA2A/B** yang mengalami penurunan drastis. Visualisasi UMAP mengonfirmasi pemisahan klaster yang tegas antara jaringan kanker dan normal.
+
+---
+
+## 🚀 Week 3: End-to-End Transcriptomics Analysis using R
+
+[cite_start]Pada minggu ketiga, analisis ditingkatkan ( *scale-up* ) dengan membangun *pipeline* analisis data mandiri menggunakan bahasa pemrograman **R**, memproses dataset GSE106582 dari tahap akuisisi mentah hingga interpretasi biologis tingkat lanjut[cite: 794].
 
 ### ⚙️ Metodologi Analisis
-- **Dataset:** [GSE106582](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106582) (ColoCare Project).
-- **Sampel:** Total 194 sampel (*Homo sapiens*), terbagi menjadi:
-  - **Kasus (Tumor):** 77 sampel.
-  - **Kontrol (Mucosa):** 117 sampel.
-- **Tools & Parameter:**
-  - Algoritma: **limma** (Linear Models for Microarray Data).
-  - Koreksi P-value: **Benjamini & Hochberg** (FDR).
-  - Cut-off Signifikansi: **Adj. P-value < 0.05** & **|logFC| > 1**.
-- **Validasi:** Analisis dilakukan dengan 3 kali replikasi teknis untuk memastikan konsistensi hasil.
+- [cite_start]**Data Ingestion:** Akuisisi matriks ekspresi menggunakan `GEOquery`[cite: 797].
+- [cite_start]**Pre-processing:** Normalisasi distribusi menggunakan transformasi Log2[cite: 798].
+- [cite_start]**Statistical Modeling:** Pendekatan model linear dan *Empirical Bayes* (`eBayes`) menggunakan *package* `limma` untuk menemukan DEGs (Adj.P-Val < 0.01 & |LogFC| > 1)[cite: 798, 799, 800].
+- [cite_start]**Functional Enrichment:** Analisis jalur biologis (*Pathways*) menggunakan `enrichR`[cite: 801].
 
 ### 📊 Hasil Analisis (Key Findings)
-Berdasarkan analisis statistik, ditemukan **17.962 gen** yang terdisregulasi secara signifikan antara jaringan tumor dan mukosa normal.
 
-#### 1. Quality Control & Clustering
-- **Boxplot:** Menunjukkan distribusi data yang sejajar, mengindikasikan proses normalisasi data (quantile normalization) berjalan baik.
-- **UMAP Plot:** Terdapat pemisahan klaster yang sangat tegas antara grup **Tumor** dan **Mucosa**, membuktikan adanya perbedaan profil transkriptomik yang nyata (biologis) dan bukan sekadar *noise*.
+#### 1. Profil Ekspresi Gen Diferensial (DEGs)
+[cite_start]Visualisasi *Volcano Plot* mengonfirmasi pergeseran transkriptomik masif antara jaringan tumor dan mukosa normal[cite: 810]. [cite_start]*Heatmap hierarchical clustering* dari Top 50 DEGs menunjukkan pemisahan yang sempurna[cite: 822]. 
+- [cite_start]**Up-regulated:** Gen struktural seperti *CLDN1* dan *FOXQ1* terekspresi sangat kuat (blok merah) pada sampel tumor[cite: 823].
+- [cite_start]**Down-regulated:** Gen fungsional homeostasis usus, *GUCA2A* dan *GUCA2B*, mengalami represi ekstrem (blok biru)[cite: 823].
 
-<img width="440" height="360" alt="umap" src="https://github.com/user-attachments/assets/c19e1fd3-9957-4a53-9b33-412c833e9f70" />
+![Volcano Plot](<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/8fe68787-e033-4f06-8fa8-d8af0b96bdf9" />)
+*(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated dan down-regulated pada CRC)*
 
-*(Gambar: Visualisasi UMAP menunjukkan pemisahan jelas antara sampel Tumor (hijau) dan Mucosa (ungu))*
+![Heatmap Top 50](<img width="773" height="616" alt="Top 50 Differentially Expressed Genes (GSE106582)" src="https://github.com/user-attachments/assets/bf46787f-e0a9-427a-a03f-fd6399d675e0" />)
+*(Gambar: Heatmap hierarchical clustering memisahkan profil genetik jaringan tumor dan normal dengan sempurna)*
 
-#### 2. Identifikasi Biomarker (Top DEGs)
-Analisis Volcano Plot dan tabel statistik mengungkapkan gen dengan perubahan ekspresi paling ekstrem:
+#### 2. Pathway & Functional Enrichment (GO & KEGG)
+Analisis pengayaan fungsional memberikan wawasan mekanistik mengenai invasi tumor:
+- [cite_start]**Gene Ontology (GO):** Gen-gen DEGs sangat diperkaya pada proses **Extracellular Matrix (ECM) Organization** dan *Extracellular Structure Organization*[cite: 857]. [cite_start]Hal ini secara langsung merefleksikan aktivitas remodeling jaringan dan degradasi matriks yang merupakan ciri utama invasivitas sel kanker[cite: 859].
+- [cite_start]**KEGG Pathways:** Pemetaan jalur metabolisme menyoroti disregulasi kuat pada jalur **Drug metabolism**, **Retinol metabolism**, dan **IL-17 signaling pathway**[cite: 860]. [cite_start]Keterlibatan IL-17 mengindikasikan respons inflamasi kronis yang mendukung lingkungan mikro tumor (TME) pada kolon[cite: 861].
 
-| Gene Symbol | Status | LogFC | Adj. P-Value | Interpretasi Biologis |
-| :--- | :--- | :--- | :--- | :--- |
-| **CLDN1** | 🔼 Up-regulated | 2.898 | 1.01e-60 | Protein *tight junction*. Peningkatan ekspresinya pada CRC dikaitkan dengan hilangnya polaritas sel dan metastasis. |
-| **GUCA2A** | 🔽 Down-regulated | -4.023 | 9.58e-53 | Berperan dalam homeostasis cairan usus. Hilangnya gen ini adalah penanda dediferensiasi sel usus menjadi ganas. |
-| **GUCA2B** | 🔽 Down-regulated | -3.383 | 4.26e-54 | (Sama dengan GUCA2A), penurunan drastis menandakan hilangnya fungsi normal epitel usus. |
+![GO and KEGG Plots](path/to/your/go_kegg_plots.png)
+*(Gambar: Hasil pemetaan Gene Ontology dan KEGG Pathways)*
 
-<img width="389" height="371" alt="volcano plot" src="https://github.com/user-attachments/assets/f6a3b28c-10df-4d65-b4b6-489758f46a22" />
-
-*(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated (merah) dan down-regulated (biru))*
-
-### 💡 Kesimpulan Week 2
-Analisis dataset GSE106582 berhasil mengonfirmasi profil molekuler Kanker Kolorektal yang agresif. Penemuan **CLDN1** (naik) dan **GUCA2A** (turun) sejalan dengan patogenesis molekuler CRC, menunjukkan bahwa metode GEO2R efektif untuk eksplorasi awal biomarker diagnostik.
-
----
-
-## 🛠️ Tools & Resources
-- **R / Bioconductor (Limma Package)**
-- **NCBI Gene Expression Omnibus (GEO)**
-- **GEO2R**
+### 💡 Kesimpulan Week 3
+[cite_start]Analisis komputasional berbantuan *script* R memvalidasi pergeseran molekuler pada Kanker Kolorektal dengan sangat presisi[cite: 863]. [cite_start]Perubahan drastis pada gen pengatur struktur (*CLDN1*) yang berujung pada perombakan masif matriks ekstraseluler (ECM) menunjukkan potensi besar gen-gen ini sebagai target terapeutik dan biomarker diagnostik[cite: 864, 865].
 
 ---
 *Author: Muhammad Fakhri Aldiansyah*
