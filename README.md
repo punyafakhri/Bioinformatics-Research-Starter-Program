@@ -56,7 +56,8 @@ Melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk
 - [cite_start]**Up-regulated:** Gen struktural seperti *CLDN1* dan *FOXQ1* terekspresi sangat kuat (blok merah) pada sampel tumor[cite: 823].
 - [cite_start]**Down-regulated:** Gen fungsional homeostasis usus, *GUCA2A* dan *GUCA2B*, mengalami represi ekstrem (blok biru)[cite: 823].
 
-![Volcano Plot](<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/8fe68787-e033-4f06-8fa8-d8af0b96bdf9" />)
+![Volcano Plot](<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/48400ef1-6239-4a2c-98a8-83d28a9ff801" />
+)
 *(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated dan down-regulated pada CRC)*
 
 ![Heatmap Top 50](<img width="773" height="616" alt="Top 50 Differentially Expressed Genes (GSE106582)" src="https://github.com/user-attachments/assets/bf46787f-e0a9-427a-a03f-fd6399d675e0" />)
@@ -71,7 +72,7 @@ Analisis pengayaan fungsional memberikan wawasan mekanistik mengenai invasi tumo
 *(Gambar: Hasil pemetaan Gene Ontology dan KEGG Pathways)*
 
 ### 💡 Kesimpulan Week 3
-[cite_start]Analisis komputasional berbantuan *script* R memvalidasi pergeseran molekuler pada Kanker Kolorektal dengan sangat presisi[cite: 863]. [cite_start]Perubahan drastis pada gen pengatur struktur (*CLDN1*) yang berujung pada perombakan masif matriks ekstraseluler (ECM) menunjukkan potensi besar gen-gen ini sebagai target terapeutik dan biomarker diagnostik[cite: 864, 865].
+Analisis komputasional berbantuan *script* R memvalidasi pergeseran molekuler pada Kanker Kolorektal dengan sangat presisi[cite: 863]. [cite_start]Perubahan drastis pada gen pengatur struktur (*CLDN1*) yang berujung pada perombakan masif matriks ekstraseluler (ECM) menunjukkan potensi besar gen-gen ini sebagai target terapeutik dan biomarker diagnostik[cite: 864, 865].
 
 ---
 *Author: Muhammad Fakhri Aldiansyah*
