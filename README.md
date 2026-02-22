@@ -44,20 +44,20 @@ Melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk
 [cite_start]Pada minggu ketiga, analisis ditingkatkan ( *scale-up* ) dengan membangun *pipeline* analisis data mandiri menggunakan bahasa pemrograman **R**, memproses dataset GSE106582 dari tahap akuisisi mentah hingga interpretasi biologis tingkat lanjut[cite: 794].
 
 ### ⚙️ Metodologi Analisis
-- [cite_start]**Data Ingestion:** Akuisisi matriks ekspresi menggunakan `GEOquery`[cite: 797].
-- [cite_start]**Pre-processing:** Normalisasi distribusi menggunakan transformasi Log2[cite: 798].
-- [cite_start]**Statistical Modeling:** Pendekatan model linear dan *Empirical Bayes* (`eBayes`) menggunakan *package* `limma` untuk menemukan DEGs (Adj.P-Val < 0.01 & |LogFC| > 1)[cite: 798, 799, 800].
-- [cite_start]**Functional Enrichment:** Analisis jalur biologis (*Pathways*) menggunakan `enrichR`[cite: 801].
+- **Data Ingestion:** Akuisisi matriks ekspresi menggunakan `GEOquery`.
+- **Pre-processing:** Normalisasi distribusi menggunakan transformasi Log2.
+- **Statistical Modeling:** Pendekatan model linear dan *Empirical Bayes* (`eBayes`) menggunakan *package* `limma` untuk menemukan DEGs (Adj.P-Val < 0.01 & |LogFC| > 1).
+- **Functional Enrichment:** Analisis jalur biologis (*Pathways*) menggunakan `enrichR`.
 
 ### 📊 Hasil Analisis (Key Findings)
 
 #### 1. Profil Ekspresi Gen Diferensial (DEGs)
-[cite_start]Visualisasi *Volcano Plot* mengonfirmasi pergeseran transkriptomik masif antara jaringan tumor dan mukosa normal[cite: 810]. [cite_start]*Heatmap hierarchical clustering* dari Top 50 DEGs menunjukkan pemisahan yang sempurna[cite: 822]. 
-- [cite_start]**Up-regulated:** Gen struktural seperti *CLDN1* dan *FOXQ1* terekspresi sangat kuat (blok merah) pada sampel tumor[cite: 823].
-- [cite_start]**Down-regulated:** Gen fungsional homeostasis usus, *GUCA2A* dan *GUCA2B*, mengalami represi ekstrem (blok biru)[cite: 823].
+Visualisasi *Volcano Plot* mengonfirmasi pergeseran transkriptomik masif antara jaringan tumor dan mukosa normal. 
+*Heatmap hierarchical clustering* dari Top 50 DEGs menunjukkan pemisahan yang sempurna. 
+- **Up-regulated:** Gen struktural seperti *CLDN1* dan *FOXQ1* terekspresi sangat kuat (blok merah) pada sampel tumor.
+- **Down-regulated:** Gen fungsional homeostasis usus, *GUCA2A* dan *GUCA2B*, mengalami represi ekstrem (blok biru).
 
-![Volcano Plot](<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/48400ef1-6239-4a2c-98a8-83d28a9ff801" />
-)
+(<img width="903" height="616" alt="Visualisasi Plot DEG Kanker Kolorektal (GSE106582)" src="https://github.com/user-attachments/assets/48400ef1-6239-4a2c-98a8-83d28a9ff801" />)
 *(Gambar: Volcano plot memperlihatkan sebaran gen signifikan up-regulated dan down-regulated pada CRC)*
 
 ![Heatmap Top 50](<img width="773" height="616" alt="Top 50 Differentially Expressed Genes (GSE106582)" src="https://github.com/user-attachments/assets/bf46787f-e0a9-427a-a03f-fd6399d675e0" />)
@@ -65,14 +65,14 @@ Melakukan analisis praktik langsung menggunakan *web-based tool* **GEO2R** untuk
 
 #### 2. Pathway & Functional Enrichment (GO & KEGG)
 Analisis pengayaan fungsional memberikan wawasan mekanistik mengenai invasi tumor:
-- [cite_start]**Gene Ontology (GO):** Gen-gen DEGs sangat diperkaya pada proses **Extracellular Matrix (ECM) Organization** dan *Extracellular Structure Organization*[cite: 857]. [cite_start]Hal ini secara langsung merefleksikan aktivitas remodeling jaringan dan degradasi matriks yang merupakan ciri utama invasivitas sel kanker[cite: 859].
-- [cite_start]**KEGG Pathways:** Pemetaan jalur metabolisme menyoroti disregulasi kuat pada jalur **Drug metabolism**, **Retinol metabolism**, dan **IL-17 signaling pathway**[cite: 860]. [cite_start]Keterlibatan IL-17 mengindikasikan respons inflamasi kronis yang mendukung lingkungan mikro tumor (TME) pada kolon[cite: 861].
+- **Gene Ontology (GO):** Gen-gen DEGs sangat diperkaya pada proses **Extracellular Matrix (ECM) Organization** dan *Extracellular Structure Organization*. [cite_start]Hal ini secara langsung merefleksikan aktivitas remodeling jaringan dan degradasi matriks yang merupakan ciri utama invasivitas sel kanker.
+- **KEGG Pathways:** Pemetaan jalur metabolisme menyoroti disregulasi kuat pada jalur **Drug metabolism**, **Retinol metabolism**, dan **IL-17 signaling pathway**. Keterlibatan IL-17 mengindikasikan respons inflamasi kronis yang mendukung lingkungan mikro tumor (TME) pada kolon.
 
 ![GO and KEGG Plots](path/to/your/go_kegg_plots.png)
 *(Gambar: Hasil pemetaan Gene Ontology dan KEGG Pathways)*
 
 ### 💡 Kesimpulan Week 3
-Analisis komputasional berbantuan *script* R memvalidasi pergeseran molekuler pada Kanker Kolorektal dengan sangat presisi[cite: 863]. [cite_start]Perubahan drastis pada gen pengatur struktur (*CLDN1*) yang berujung pada perombakan masif matriks ekstraseluler (ECM) menunjukkan potensi besar gen-gen ini sebagai target terapeutik dan biomarker diagnostik[cite: 864, 865].
+Analisis komputasional berbantuan *script* R memvalidasi pergeseran molekuler pada Kanker Kolorektal dengan sangat presisi. Perubahan drastis pada gen pengatur struktur (*CLDN1*) yang berujung pada perombakan masif matriks ekstraseluler (ECM) menunjukkan potensi besar gen-gen ini sebagai target terapeutik dan biomarker diagnostik.
 
 ---
 *Author: Muhammad Fakhri Aldiansyah*
